@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f7f7f2">
+	<title>Lume — seu mundo em imagens</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./styles/tokens.css">
+	<link rel="stylesheet" href="./styles/app.css">
+	<script type="importmap">
+		{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.module.js" } }
+	</script>
+</head>
+<body>
+	<div class="app">
+		<lume-sidebar></lume-sidebar>
+		<lume-header></lume-header>
+		<main class="main">
+			<div class="content-grid">
+				<section class="feed-column" aria-label="Seu feed">
+					<div class="section-heading"><div><span class="eyebrow">Quarta-feira, 30 de setembro</span><h1>Bom dia, Marina <span aria-hidden="true">☀</span></h1></div><span class="heading-date">Seu mundo, em imagens.</span></div>
+					<lume-orbit-gallery></lume-orbit-gallery>
+					<lume-stories></lume-stories>
+					<div class="feed-filter"><strong>Para você</strong><button data-feed-refresh>Ver publicações recentes　↗</button></div>
+					<lume-feed></lume-feed>
+				</section>
+				<lume-suggestions></lume-suggestions>
+			</div>
+		</main>
+		<lume-mobile-nav></lume-mobile-nav>
+		<lume-assistant></lume-assistant>
+		<lume-dialogs></lume-dialogs>
+	</div>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script type="module" src="./src/app.js"></script>
+</body>
+</html>

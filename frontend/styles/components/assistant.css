@@ -1,0 +1,42 @@
+.helper { position: fixed; right: 26px; bottom: 24px; z-index: 8; }
+.helper-trigger { width: 66px; height: 62px; padding: 0; overflow: hidden; border: 1px solid #ffffff50; border-radius: 18px 18px 5px 18px; background: var(--green); box-shadow: 0 9px 24px #193a2b35; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.helper-trigger:hover { transform: translateY(-3px) rotate(-2deg); box-shadow: 0 13px 28px #193a2b45; }
+.helper-trigger:focus-visible, .helper-panel button:focus-visible, .helper-panel input:focus-visible { outline: 3px solid #c7e759; outline-offset: 3px; }
+.helper-scene { position: relative; display: block; width: 66px; height: 62px; }
+.helper-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+.helper-fallback { position: absolute; inset: 0; z-index: 1; display: grid; width: 100%; height: 100%; place-items: center; color: var(--lime); font-size: 30px; }
+.helper-scene.ready .helper-fallback { display: none; }
+.helper-nudge { position: absolute; right: 0; bottom: 73px; max-width: 210px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 7px 7px 2px 7px; background: #fff; box-shadow: 0 5px 18px #20292212; color: var(--ink); font-size: 11px; line-height: 1.35; white-space: nowrap; }
+.helper-nudge strong { color: var(--green); }
+.helper-panel { position: absolute; right: 0; bottom: 77px; display: none; width: min(328px, calc(100vw - 28px)); max-height: min(460px, calc(100dvh - 170px)); overflow: hidden; flex-direction: column; border: 1px solid var(--line); border-radius: 10px; background: #fff; box-shadow: 0 18px 55px #182b2040; }
+.helper.open .helper-panel { display: flex; animation: appear .18s ease-out; }
+.helper.open .helper-nudge { display: none; }
+.helper-head { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-bottom: 1px solid var(--line); }
+.helper-head-copy { min-width: 0; flex: 1; }
+.helper-head-copy strong, .helper-head-copy span { display: block; }
+.helper-head-copy strong { font: 700 15px var(--display); }
+.helper-head-copy span { margin-top: 3px; color: #68766d; font-size: 12px; }
+.helper-online { display: inline-block; width: 7px; height: 7px; margin-right: 4px; border-radius: 50%; background: #65ae78; }
+.helper-head button { width: 30px; height: 30px; border: 0; border-radius: 5px; background: transparent; color: #758078; font-size: 17px; cursor: pointer; }
+.helper-head button:hover { background: #f2f4ef; }
+.helper-messages { display: flex; min-height: 116px; max-height: 245px; overflow-y: auto; flex-direction: column; gap: 9px; padding: 16px 14px 9px; }
+.helper-message { max-width: 88%; padding: 10px 12px; border-radius: 9px 9px 9px 2px; background: #eff3eb; color: #39473c; font-size: 14px; line-height: 1.5; }
+.helper-message.user { align-self: flex-end; border-radius: 9px 9px 2px 9px; background: var(--green); color: #fff; }
+.helper-prompts { display: flex; gap: 6px; overflow-x: auto; padding: 5px 12px 12px; scrollbar-width: none; }
+.helper-prompts button { flex: 0 0 auto; padding: 8px 10px; border: 1px solid #dce4d8; border-radius: 5px; background: #fff; color: var(--green); font-size: 12px; cursor: pointer; }
+.helper-prompts button:hover { background: #f1f5ed; }
+.helper-form { display: flex; gap: 7px; padding: 11px; border-top: 1px solid var(--line); }
+.helper-form input { min-width: 0; height: 42px; flex: 1; padding: 0 11px; border: 1px solid var(--line); border-radius: 5px; outline-color: var(--green); font-size: 14px; }
+.helper-form button { width: 42px; height: 42px; border: 0; border-radius: 5px; background: var(--green); color: #fff; font-size: 18px; cursor: pointer; }
+.helper-hint { margin: 0; padding: 0 13px 11px; color: #738077; font-size: 11px; }
+
+@media (max-width: 700px) {
+	.helper { right: 13px; bottom: calc(72px + env(safe-area-inset-bottom)); }
+	.helper-trigger { width: 58px; height: 56px; border-radius: 16px 16px 4px 16px; }
+	.helper-scene { width: 58px; height: 56px; }
+	.helper-nudge { bottom: 65px; max-width: calc(100vw - 34px); font-size: 10px; }
+	.helper-panel { bottom: 68px; width: min(328px, calc(100vw - 52px)); max-height: min(420px, calc(100dvh - 155px)); }
+	.helper-messages { max-height: 190px; }
+	.helper-message { font-size: 14px; }
+	.helper-hint { display: none; }
+}

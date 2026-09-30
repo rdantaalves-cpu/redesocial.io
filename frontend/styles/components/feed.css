@@ -1,0 +1,47 @@
+.stories { display: flex; align-items: flex-start; gap: 18px; padding: 17px 18px 15px; margin-bottom: 25px; overflow-x: auto; border: 1px solid #dce5d8; border-radius: 10px; background: #ffffffdc; box-shadow: 0 8px 22px #234f3e0a; scrollbar-width: none; }
+.stories::-webkit-scrollbar { display: none; }
+.story { display: flex; flex: 0 0 68px; flex-direction: column; align-items: center; padding: 0; border: 0; background: transparent; text-align: center; cursor: pointer; }
+.story-ring { position: relative; display: block; flex: 0 0 62px; width: 62px; height: 62px; aspect-ratio: 1; padding: 3px; margin: 0 auto 8px; overflow: hidden; border-radius: 50%; background: conic-gradient(from 25deg, var(--coral), #efbb62, var(--plum), var(--coral)); transition: transform .2s; }
+.story:hover .story-ring { transform: translateY(-3px) scale(1.03); }
+.story-ring.seen { background: #d9ded8; }
+.story-ring img { display: block; width: 100%; height: 100%; aspect-ratio: 1; border: 2px solid white; border-radius: 50%; object-fit: cover; object-position: center; }
+.story-name { display: block; overflow: hidden; color: #4d5d52; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.post { overflow: hidden; margin-bottom: 25px; border: 1px solid #e1e7df; border-radius: 10px; background: var(--paper); box-shadow: 0 8px 22px #1d3e2e0a; }
+.post-head { display: flex; align-items: center; gap: 12px; padding: 16px 17px; }
+.post-head .avatar { width: 42px; height: 42px; }
+.post-author { min-width: 0; flex: 1; }
+.post-author strong { font-size: 15px; }
+.post-author span { display: block; margin-top: 3px; color: #68766d; font-size: 13px; }
+.verified { color: #4d9e76 !important; font-size: 14px !important; }
+.more-button { min-width: 38px; min-height: 38px; border: 0; border-radius: 50%; background: transparent; color: #59675d; font-size: 23px; cursor: pointer; }
+.more-button:hover { background: #f0f4ed; }
+.post-image-wrap { position: relative; overflow: hidden; aspect-ratio: 1.18 / 1; background: #e7e8e3; }
+.post-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+.post-image.landscape { object-position: center 48%; }
+.like-burst { position: absolute; top: 50%; left: 50%; color: #fff; font-size: 72px; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(.45); text-shadow: 0 2px 16px #0005; }
+.like-burst.show { animation: burst .7s ease-out; }
+@keyframes burst { 20% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); } 75% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); } }
+.post-actions { display: flex; align-items: center; gap: 14px; padding: 12px 15px 0; }
+.post-actions button { width: 38px; height: 38px; padding: 0; border: 0; border-radius: 50%; background: transparent; font-size: 25px; line-height: 1; cursor: pointer; transition: background .18s, transform .18s; }
+.post-actions button:hover { background: #f2f5ef; transform: translateY(-2px); }
+.post-actions button:hover { color: var(--coral); }
+.post-actions .save-button { margin-left: auto; }
+.post-actions .liked { color: var(--coral); }
+.post-copy { padding: 9px 17px 18px; font-size: 14px; line-height: 1.55; }
+.post-copy strong { font-size: 14px; }
+.likes-count { display: block; margin-bottom: 7px; font-size: 14px; font-weight: 700; }
+.caption { margin: 0 0 8px; }
+.caption a { color: var(--green); text-decoration: none; }
+.comments-link { padding: 0; border: 0; background: transparent; color: #69776d; font-size: 13px; cursor: pointer; }
+.post-time { display: block; margin-top: 8px; color: #78847b; font-size: 11px; letter-spacing: .7px; text-transform: uppercase; }
+
+@media (max-width: 700px) {
+	.stories { gap: 15px; padding: 15px 16px 14px; }
+	.story { flex-basis: 64px; }
+	.story-ring { flex-basis: 60px; width: 60px; height: 60px; }
+	.post-head { padding: 15px 16px; }
+	.post-copy { font-size: 15px; }
+	.post-copy strong, .likes-count { font-size: 15px; }
+	.comments-link { font-size: 14px; }
+	.post-time { font-size: 12px; }
+}
